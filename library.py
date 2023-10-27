@@ -1,5 +1,31 @@
-#importujemy tkinera i nazywamy i dodajemy 1 text
 import tkinter as tk
+
+class Library:
+    def __init__(self, books = []):
+        self.books = books
+
+    def newBook(self, title, author, publicationDate):
+        self.books.append(Book(title, author, publicationDate))
+    
+    def removeBook(self, id):
+        self.books.pop(id)
+
+
+class Book:
+    def __init__(self, title, author, publicationDate):
+        self.title = title
+        self.author = author
+        self.publicationDate = publicationDate
+
+
+# test#
+library = Library()
+library.newBook("Dziady III", "Adam Mickiewicz", 1814)
+library.newBook("To", "Stephen King", 1983)
+print(library.books)
+########
+
+
 BMI = tk.Tk()
 BMI.title("Kalkulator BMI")
 szerokosc=BMI.winfo_screenwidth()#pobiera szerokosc ekranu
@@ -10,27 +36,6 @@ tytul=tk.Label(BMI, text="Kalkulator BMI", font=("Comic Sans MS", 40), fg="#0000
 tytul.grid(row=0, column=16)
 SOZ=tk.Label(BMI, text="Interpretacja wyniku BMI jest"  "\n" "oparta na ogólnie przyjętych kategoriach"     "\n" "(według Światowej Organizacji Zdrowia).", font=("Consolas", 10), fg="#111111")
 SOZ.grid(row=1, column=10)
-
-#funkcja result po kliknięciu guzika obliczanie wylicza bmi ściągając dane z 2 pól(wzrost, masa) i zależnie od bmi daje odpowiedź
-def result():
-    wpisaniewyniku.delete(0, tk.END)
-    usuniecie = tk.Label(BMI, text="                                                          ""\n""              ""\n""                ",font=("Comic Sans MS", 20))
-    usuniecie.grid(row=1, column=0)
-    masa = wpisaniemasy.get()
-    wzrost = wpisaniewzrostu.get()
-    if masa.isdigit() and wzrost.isdigit():
-        wzrost=float(wzrost)/100
-        masa = float(masa)
-        w = round((masa/wzrost**2), 2)
-        wpisaniewyniku.insert(0, w)
-
-#funkcja reset usuwa wszystko co użytkownik wpisał oraz usuwa odpowiedzi
-def reset():
-    wpisaniewzrostu.delete(0, tk.END)
-    wpisaniemasy.delete(0, tk.END)
-    wpisaniewyniku.delete(0, tk.END)
-    usuniecie = tk.Label(BMI,text="                                                          ""\n""              ""\n""                ", font=("Comic Sans MS", 20))
-    usuniecie.grid(row=9, column=1)
 
 #tworzenie pól textowych i przycisków
 masowytext = tk.Label(BMI, text="Podaj masę swego ciała (w kilogramach):", font=("Consolas", 12), fg="#111111")
