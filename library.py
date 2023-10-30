@@ -1,5 +1,32 @@
-#importujemy tkinera i nazywamy i dodajemy 1 text
+
 import tkinter as tk
+
+class Library:
+    def __init__(self, books = []):
+        self.books = books
+
+    def newBook(self, title, author, publicationDate):
+        self.books.append(Book(title, author, publicationDate))
+    
+    def removeBook(self, id):
+        self.books.pop(id)
+
+
+class Book:
+    def __init__(self, title, author, publicationDate):
+        self.title = title
+        self.author = author
+        self.publicationDate = publicationDate
+
+
+# test#
+library = Library()
+library.newBook("Dziady III", "Adam Mickiewicz", 1814)
+library.newBook("To", "Stephen King", 1983)
+print(library.books)
+########
+
+
 BMI = tk.Tk()
 #funkcja result po kliknięciu guzika obliczanie wylicza bmi ściągając dane z 2 pól(wzrost, masa) i zależnie od bmi daje odpowiedź
 BMI.title("Twoja Biblioteka")
