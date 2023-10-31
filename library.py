@@ -1,7 +1,6 @@
 #importujemy tkinera i nazywamy i dodajemy 1 text
 import tkinter as tk
 BMI = tk.Tk()
-#funkcja result po kliknięciu guzika obliczanie wylicza bmi ściągając dane z 2 pól(wzrost, masa) i zależnie od bmi daje odpowiedź
 BMI.title("Twoja Biblioteka")
 BMI.geometry("500x500")
 tytul=tk.Label(BMI, text="Twoja Biblioteka", font=("Comic Sans MS", 40), fg="#0000FF")
@@ -26,10 +25,10 @@ wynikowytext.grid(row=9, column=1)
 wpisaniewyniku = tk.Entry(BMI, width=30, font=50)
 wpisaniewyniku.grid(row=10, column=1)
 
-Resetuj = tk.Button(BMI, text="Dodaj", width=5, height=3, fg="green")
+Resetuj = tk.Button(BMI, text="Dodaj""\n""Książke", width=5, height=3, fg="green")
 Resetuj.grid(row=10, column=0)
 
-Resetuj = tk.Button(BMI, text="Usuń", width=5, height=3, fg="green")
+Resetuj = tk.Button(BMI, text="Usuń""\n""Książke", width=5, height=3, fg="green")
 Resetuj.grid(row=10, column=2)
 
 BMI.mainloop()
