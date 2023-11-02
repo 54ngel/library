@@ -1,57 +1,20 @@
-#importujemy tkinera i nazywamy i dodajemy 1 text
 import tkinter as tk
-BMI = tk.Tk()
-BMI.title("Twoja Biblioteka")
-BMI.geometry("500x500")
-tytul=tk.Label(BMI, text="Twoja Biblioteka", font=("Comic Sans MS", 40), fg="#0000FF")
-tytul.grid(row=0, column=1, columnspan=2)
 
-<<<<<<< Updated upstream
-#tworzenie pól textowych i przycisków
-masowytext = tk.Label(BMI, text="Podaj autora ksiązki:", font=("Consolas", 12), fg="#111111")
-masowytext.grid(row=5, column=1)
-
-wpisaniemasy = tk.Entry(BMI, width=30, font=50)
-wpisaniemasy.grid(row=6, column=1)
-=======
 class Library:
     def __init__(self, books=[]):
         self.books = books
->>>>>>> Stashed changes
 
-wzrostowytext = tk.Label(BMI, text="Podaj nazwę książki:", font=("Consolas", 12), fg="#111111")
-wzrostowytext.grid(row=7, column=1)
+        def newBook(self, title, author, publicationDate):
+        self.books.append(Book(title, author, publicationDate))
 
-wpisaniewzrostu = tk.Entry(BMI, width=30, font=50)
-wpisaniewzrostu.grid(row=8, column=1)
+    def removeBook(self, id):
+        self.books.pop(id)
 
-<<<<<<< Updated upstream
-wynikowytext = tk.Label(BMI, text="Podaj datę wydania książki:", font=("Consolas", 12), fg="#111111")
-wynikowytext.grid(row=9, column=1)
-
-wpisaniewyniku = tk.Entry(BMI, width=30, font=50)
-wpisaniewyniku.grid(row=10, column=1)
-
-Resetuj = tk.Button(BMI, text="Dodaj""\n""Książke", width=5, height=3, fg="green")
-Resetuj.grid(row=10, column=0)
-
-Resetuj = tk.Button(BMI, text="Usuń""\n""Książke", width=5, height=3, fg="green")
-Resetuj.grid(row=10, column=2)
-
-BMI.mainloop()
-=======
 class Book:
     def __init__(self, title, author, publicationDate):
         self.title = title
         self.author = author
         self.publicationDate = publicationDate
-
-# test#
-library = Library()
-library.newBook("Dziady III", "Adam Mickiewicz", 1814)
-library.newBook("To", "Stephen King", 1983)
-print(library.books)
-########
 
 yourLibrary = tk.Tk()
 yourLibrary.title("Twoja Biblioteka")
@@ -102,6 +65,7 @@ enterReleaseDate = tk.Entry(yourLibrary, width=30, font=50)
 enterReleaseDate.grid(row=10, column=1)
 
 # Tworzenie przycisków "Dodaj" i "Usuń" z wywołaniem odpowiednich funkcji
+
 libraryButton = tk.Button(yourLibrary, text="Biblioteka", width=10, height=3, fg="orange")
 libraryButton.grid(row=10, column=0)
 
@@ -115,4 +79,3 @@ resetButton = tk.Button(yourLibrary, text="Reset", command=reset, width=10, heig
 resetButton.grid(row=10, column=2)
 
 yourLibrary.mainloop()
->>>>>>> Stashed changes
