@@ -1,31 +1,20 @@
 import tkinter as tk
 
-
 class Library:
     def __init__(self, books=[]):
         self.books = books
 
-    def newBook(self, title, author, publicationDate):
+        def newBook(self, title, author, publicationDate):
         self.books.append(Book(title, author, publicationDate))
 
     def removeBook(self, id):
         self.books.pop(id)
-
 
 class Book:
     def __init__(self, title, author, publicationDate):
         self.title = title
         self.author = author
         self.publicationDate = publicationDate
-
-
-# test#
-library = Library()
-library.newBook("Dziady III", "Adam Mickiewicz", 1814)
-library.newBook("To", "Stephen King", 1983)
-print(library.books)
-########
-
 
 yourLibrary = tk.Tk()
 yourLibrary.title("Twoja Biblioteka")
@@ -76,6 +65,10 @@ enterReleaseDate = tk.Entry(yourLibrary, width=30, font=50)
 enterReleaseDate.grid(row=10, column=1)
 
 # Tworzenie przycisków "Dodaj" i "Usuń" z wywołaniem odpowiednich funkcji
+
+libraryButton = tk.Button(yourLibrary, text="Biblioteka", width=10, height=3, fg="orange")
+libraryButton.grid(row=10, column=0)
+
 addButton = tk.Button(yourLibrary, text="Dodaj", width=10, height=2, fg="green", command=dodaj_ksiazke)
 addButton.grid(row=11, column=0)
 
